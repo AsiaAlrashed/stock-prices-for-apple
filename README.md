@@ -19,13 +19,16 @@ This script fine-tunes a GPT-3.5 Turbo model using custom training data.
 1. Install required dependencies:
    ```python
    pip install openai
+   ```
 2. Set up the OpenAI API key in openai_client.py:
    ```python
    import openai
    client = openai.OpenAI(api_key="your-api-key")
+   ```
 3. Run the fine-tuning script:
    ```python
    python fine_tuning.py
+   ```
 
 After the fine-tuning completes, the model ID will be generated. This ID is needed for evaluation.
 
@@ -54,26 +57,30 @@ After the fine-tuning completes, the model ID will be generated. This ID is need
    1. Install required dependencies:
       ```python
       pip install openai scikit-learn
+      ```
    2. Set up the OpenAI API key in openai_client.py.
    3. Update the script with your fine-tuned model ID:
       ```python
       model_id = "your-fine-tuned-model-id"
+      ```
    4. Run the evaluation script:
       ```python
       python evaluate_fine_tuned.py
-      
-## Expected Output
-      ```python
-      Accuracy: 1.00
-      Precision: 1.00
-      Recall: 1.00
-      F1 Score: 1.00
+      ```
+   ## Expected Output
+   ```python
+         Accuracy: 1.00
+         Precision: 1.00
+         Recall: 1.00
+         F1 Score: 1.00 
+   ```
+
 
 ## 3. Log Classification and Explanation (classify_log.py)
 ## Description
 This script classifies log entries as Normal or Abnormal using the fine-tuned model. If classified as Abnormal, the model provides an explanation.
 
-##Steps Performed
+## Steps Performed
 
 1. Passes a log entry to the fine-tuned model.
 
@@ -85,33 +92,31 @@ This script classifies log entries as Normal or Abnormal using the fine-tuned mo
 
 1. Install required dependencies:
    ```python
-   pip install openai
-
+      pip install openai
+   ```
 2. Set up the OpenAI API key in openai_client.py.
 
-3. Run the classification script with sample logs:
-   ```python
-   python classify_log.py
+   3. Run the classification script with sample logs:
+         ```python
+         python classify_log.py
+         ```
 
-## Example Logs and Output
-### Input Log 1:
+   ## Example Logs and Output
+     1.  ### Input Log 1 & Output:
       ```python
-      1117886164 2005.06.04 R35-M1-N0-I:J18-U11 RAS APP ERROR memory leak detected
-
-### Output:
-      ```
+      1117886164 2005.06.04 R35-M1-N0-I:J18-U11 RAS APP ERROR memory leak detected.
+      
       Classification: Normal
-
-### Input Log 2:
       ```
-      1117869873 2005.06.04 R35-M1-N0-I:J18-U11 2005-06-04-00.24.33.168659 R35-M1-N0-I:J18-U11 RAS APP FATAL ciod: failed to read message prefix on control stream 
-      (CioStream socket to 172.16.96.116:33459)
 
-### Output:
-      ```
-      Classification: Abnormal
-      Reason: The log entry describes a fatal error in the RAS application due to a failed socket connection, which can disrupt critical operations.
-
+  ### Input Log 2 & Output:
+   ```python
+            1117869873 2005.06.04 R35-M1-N0-I:J18-U11 2005-06-04-00.24.33.168659 R35-M1-N0-I:J18-U11 RAS APP FATAL ciod: failed to read message prefix on control stream 
+            (CioStream socket to 172.16.96.116:33459)
+      
+            Classification: Abnormal
+            Reason: The log entry describes a fatal error in the RAS application due to a failed socket connection, which can disrupt critical operations.
+   ```
 ## Notes
 
 Ensure that your validation data is formatted correctly before fine-tuning.
