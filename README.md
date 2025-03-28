@@ -102,14 +102,14 @@ This script classifies log entries as Normal or Abnormal using the fine-tuned mo
          ```
 
    ## Example Logs and Output
-     1.  ### Input Log 1 & Output:
+   ### Input Log 1 & Output:
       ```python
       1117886164 2005.06.04 R35-M1-N0-I:J18-U11 RAS APP ERROR memory leak detected.
       
       Classification: Normal
       ```
 
-  ### Input Log 2 & Output:
+    ### Input Log 2 & Output:
    ```python
             1117869873 2005.06.04 R35-M1-N0-I:J18-U11 2005-06-04-00.24.33.168659 R35-M1-N0-I:J18-U11 RAS APP FATAL ciod: failed to read message prefix on control stream 
             (CioStream socket to 172.16.96.116:33459)
