@@ -18,10 +18,24 @@ This script fine-tunes a GPT-3.5 Turbo model using custom training data.
 ## How to Run
 1. Install required dependencies:
    ```python
-   ```pip install openai
-3. Set up the OpenAI API key in openai_client.py:
+   pip install openai
+2. Set up the OpenAI API key in openai_client.py:
    ```python
    import openai
    client = openai.OpenAI(api_key="your-api-key")
+3. Run the fine-tuning script:
+   ```python
+   python fine_tuning.py
 
-4. 
+After the fine-tuning completes, the model ID will be generated. This ID is needed for evaluation.
+
+## 2. Evaluating the Fine-Tuned Model (evaluate_fine_tuned.py)
+   ## Description
+      
+      This script evaluates the fine-tuned model by:
+      
+      Passing validation data to the model.
+      
+      Comparing the model's predictions against ground truth labels.
+      
+      Calculating classification metrics such as Accuracy, Precision, Recall, and F1-score.
