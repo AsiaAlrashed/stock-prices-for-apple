@@ -63,8 +63,59 @@ After the fine-tuning completes, the model ID will be generated. This ID is need
       python evaluate_fine_tuned.py
       
 ## Expected Output
-```python
-Accuracy: 1.00
-Precision: 1.00
-Recall: 1.00
-F1 Score: 1.00
+      ```python
+      Accuracy: 1.00
+      Precision: 1.00
+      Recall: 1.00
+      F1 Score: 1.00
+
+## 3. Log Classification and Explanation (classify_log.py)
+## Description
+This script classifies log entries as Normal or Abnormal using the fine-tuned model. If classified as Abnormal, the model provides an explanation.
+
+##Steps Performed
+
+1. Passes a log entry to the fine-tuned model.
+
+2. Receives classification (Normal or Abnormal).
+
+3. If Abnormal, requests an explanation from the model.
+
+## How to Run
+
+1. Install required dependencies:
+   ```python
+   pip install openai
+
+2. Set up the OpenAI API key in openai_client.py.
+
+3. Run the classification script with sample logs:
+   ```python
+   python classify_log.py
+
+## Example Logs and Output
+### Input Log 1:
+      ```python
+      1117886164 2005.06.04 R35-M1-N0-I:J18-U11 RAS APP ERROR memory leak detected
+
+### Output:
+      ```
+      Classification: Normal
+
+### Input Log 2:
+      ```
+      1117869873 2005.06.04 R35-M1-N0-I:J18-U11 2005-06-04-00.24.33.168659 R35-M1-N0-I:J18-U11 RAS APP FATAL ciod: failed to read message prefix on control stream 
+      (CioStream socket to 172.16.96.116:33459)
+
+### Output:
+      ```
+      Classification: Abnormal
+      Reason: The log entry describes a fatal error in the RAS application due to a failed socket connection, which can disrupt critical operations.
+
+## Notes
+
+Ensure that your validation data is formatted correctly before fine-tuning.
+
+Fine-tuning can take time, so monitor the job status in the console.
+
+Use the evaluation script to check the model's performance and adjust training data accordingly.
