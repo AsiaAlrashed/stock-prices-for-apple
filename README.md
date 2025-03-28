@@ -64,7 +64,7 @@ After the fine-tuning completes, the model ID will be generated. This ID is need
       
 ## Expected Output
 ```python
-Accuracy: 0.95
-Precision: 0.92
-Recall: 0.90
-F1 Score: 0.91
+Accuracy: 1.00
+Precision: 1.00
+Recall: 1.00
+F1 Score: 1.00
