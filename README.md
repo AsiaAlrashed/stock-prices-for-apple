@@ -32,10 +32,39 @@ After the fine-tuning completes, the model ID will be generated. This ID is need
 ## 2. Evaluating the Fine-Tuned Model (evaluate_fine_tuned.py)
    ## Description
       
-      This script evaluates the fine-tuned model by:
+   1. This script evaluates the fine-tuned model by:
       
-      Passing validation data to the model.
+   2. Passing validation data to the model.
       
-      Comparing the model's predictions against ground truth labels.
+   3. Comparing the model's predictions against ground truth labels.
       
-      Calculating classification metrics such as Accuracy, Precision, Recall, and F1-score.
+   4. Calculating classification metrics such as Accuracy, Precision, Recall, and F1-score.
+
+  ## Steps Performed
+   
+   1. Loads validation dataset (filtered_val.jsonl).
+   
+   2. Extracts ground truth classifications from the dataset.
+   
+   3. Uses the fine-tuned model to classify the data.
+   
+   4. Calculates and prints evaluation metrics.
+
+   ## How to Run
+   1. Install required dependencies:
+      ```python
+      pip install openai scikit-learn
+   2. Set up the OpenAI API key in openai_client.py.
+   3. Update the script with your fine-tuned model ID:
+      ```python
+      model_id = "your-fine-tuned-model-id"
+   4. Run the evaluation script:
+      ```python
+      python evaluate_fine_tuned.py
+      
+## Expected Output
+```python
+Accuracy: 0.95
+Precision: 0.92
+Recall: 0.90
+F1 Score: 0.91
